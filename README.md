@@ -1,5 +1,34 @@
                     # lci - a LOLCODE interpreter written in C
 
+# lci - a LOLCODE interpreter written in Rust
+
+## Rust Conversion Notice
+
+This project has been converted from C to Rust to provide modern language features, memory safety, and improved maintainability. The Rust implementation follows best practices and leverages the Rust ecosystem.
+
+### Why Rust?
+
+- **Memory Safety**: Rust's ownership system eliminates entire classes of bugs
+- **Modern Tooling**: cargo provides excellent build, test, and dependency management
+- **Performance**: Zero-cost abstractions with compile-time guarantees
+- **Maintainability**: Strong type system and excellent error messages
+
+### Quick Start (Rust Version)
+
+```bash
+# Build
+cargo build --release
+
+# Run
+cargo run -- examples/hello.lol
+
+# Or use the compiled binary
+./target/release/lci examples/hello.lol
+
+# Install system-wide
+cargo install --path .
+```
+
 # LICENSE
 
     Copyright (C) 2010-2014 Justin J. Meza
@@ -41,13 +70,53 @@ Created and maintained by Justin J. Meza <justin.meza@gmail.com>.
 
 # PREREQUISITES
 
+## For Rust Version (Recommended)
+
+1. Install Rust from https://rustup.rs/:
+   ```bash
+   curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+   ```
+
+2. Build the project:
+   ```bash
+   cargo build --release
+   ```
+
+3. Run tests:
+   ```bash
+   cargo test
+   ```
+
+## For Original C Version
+
 1. You must have CMake installed (www.cmake.org). 
   a) If you're using a Linux distro with package managment CMake should be in 
     your repositories.
 
 2. Python 2.7+ or Python 2.x with the argparse module installed.
 
-# INSTALLATION: THE EASY WAY ON LINUX OR MAC OSX
+# INSTALLATION: THE EASY WAY (RUST VERSION)
+
+1. Build and install with cargo:
+
+   ```bash
+   cargo install --path .
+   ```
+
+2. Or copy the built binary:
+
+   ```bash
+   cargo build --release
+   cp target/release/lci /usr/local/bin/
+   ```
+
+3. Run lci:
+
+   ```bash
+   lci examples/hello.lol
+   ```
+
+# INSTALLATION: THE EASY WAY ON LINUX OR MAC OSX (C VERSION)
 
 1. run the script install.py. Note that
 
