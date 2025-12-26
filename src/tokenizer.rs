@@ -261,14 +261,6 @@ fn try_multi_lexeme_keyword(lexemes: &[Lexeme]) -> Option<(TokenType, usize)> {
             .join(" ")
     };
 
-    // Try 5-lexeme keywords
-    if lexemes.len() >= 5 {
-        match join_images(5).as_str() {
-            "IM OUTTA YR" => return Some((TokenType::ImOuttaYr, 5)),
-            _ => {}
-        }
-    }
-
     // Try 4-lexeme keywords
     if lexemes.len() >= 4 {
         match join_images(4).as_str() {
@@ -288,6 +280,7 @@ fn try_multi_lexeme_keyword(lexemes: &[Lexeme]) -> Option<(TokenType, usize)> {
             "YA RLY" => return Some((TokenType::YaRly, 3)),
             "NO WAI" => return Some((TokenType::NoWai, 3)),
             "IM LIEK" => return Some((TokenType::ImLiek, 3)),
+            "IM OUTTA YR" => return Some((TokenType::ImOuttaYr, 3)),
             _ => {}
         }
     }

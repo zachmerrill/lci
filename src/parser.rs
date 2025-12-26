@@ -262,12 +262,14 @@ impl<'a> Parser<'a> {
                     return self.parse_input();
                 }
                 TokenType::Identifier(_) => {
-                    // Could be assignment or function call
+                    // Could be assignment or expression statement
                     if let Some(next) = self.peek(1) {
                         if matches!(next.token_type, TokenType::R) {
                             return self.parse_assignment();
                         }
                     }
+                    // If not assignment, treat as expression statement
+                    // (could be function call or variable reference)
                 }
                 TokenType::ORly => {
                     return self.parse_if_then_else();

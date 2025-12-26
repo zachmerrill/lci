@@ -324,7 +324,7 @@ impl Interpreter {
                 self.push_scope();
                 
                 loop {
-                    // Check condition
+                    // Check condition BEFORE executing body (standard loop semantics)
                     if let Some((cond_type, cond_expr)) = condition {
                         let cond_val = self.evaluate_expression(cond_expr)?;
                         let should_continue = cond_val.to_bool();
@@ -351,7 +351,9 @@ impl Interpreter {
                         }
                     }
                     
-                    // Perform operation
+                    // Perform operation AFTER body execution (LOLCODE semantics)
+                    // Note: This is post-increment/decrement, which matches LOLCODE behavior
+                    // where the variable is modified at the end of each iteration
                     if let (Some(op), Some(var)) = (operation, variable) {
                         let current = self.get_variable(var)?;
                         let new_value = if op == "UPPIN" {
