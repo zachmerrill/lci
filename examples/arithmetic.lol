@@ -1,0 +1,7 @@
+HAI 1.3
+    BTW This is a simple arithmetic example
+    VISIBLE SUM OF 2 AN 3
+    VISIBLE DIFF OF 10 AN 4
+    VISIBLE PRODUKT OF 5 AN 6
+    VISIBLE QUOSHUNT OF 20 AN 4
+KTHXBYE
